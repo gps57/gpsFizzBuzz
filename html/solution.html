@@ -1,0 +1,289 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+      <title>Glen's Fizz Buzz Solution</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- project CSS -->
+    <link href="../css/styles.css" rel="stylesheet" />
+
+  </head>
+  <body>
+
+    <nav class="navbar bg-dark navbar-dark navbar-expand-md mb-2">
+      <div class="container">
+
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#myTogglerNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a href="../index.html" class="navbar-brand d-md-none">
+          <svg class="bi bi-house icon-white" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+            <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+          </svg>
+        </a>
+
+        <a href="../index.html" class="navbar-brand d-none d-md-inline">Code Challenge</a>
+
+        <div class="collapse navbar-collapse" id="myTogglerNav">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href="./rules.html">Rules</a>
+            <a class="nav-item nav-link" href="./instructions.html">Instructions</a>
+            <a class="nav-item nav-link active" href="./solution.html">Solution</a>
+            <a class="nav-item nav-link" href="tech-used.html">Tech Used</a>
+            <a class="nav-item nav-link" href="about-me.html">About Me</a>
+          </div> <!-- end navbar-nav-->
+        </div> <!-- end collapse -->
+      </div> <!-- end container -->
+    </nav>
+
+    <article class="container">
+      <section class="row">
+        <section class="col">
+          <div class="card">
+            <div class="card-header text-center">
+              <h4>Glen Stewart's Solution</h4>
+            </div> <!-- end card-header -->
+
+            <div class="card-body">
+              <!-- ================ Solution starts here ================== -->
+              <section>
+                <form>
+                  <div class="form-group row">
+                    <label for="fizzNum" class="col-lg-2 col-form-label">Fizz Number</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="fizzNumInput" placeholder="Enter FizzNum">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="buzzNum" class="col-lg-2 col-form-label">Buzz Number</label>
+                    <div class="col-lg-10">
+                      <input type="text" class="form-control" id="buzzNumInput" placeholder="Enter BuzzNum">
+                    </div>
+                  </div>
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <p class="col-form-label col-lg-2 pt-0">Display Preference</p>
+                      <div class="col-lg-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="useTextBlock" value="option1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Display results in a text block
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="useTable" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Display results in a table
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <div class="form-group row">
+                    <div class="col-lg-10 mb-3">
+                      <div class="d-flex">
+                        <button id="doFizzBuzzBtn" type="button" class="btn btn-primary mr-auto">Do FizzBuzz</button>
+                        <a href="./rules.html" class="btn btn-outline-info" role="button">See Rules</a>
+                        <a href="./instructions.html" class="btn btn-outline-info ml-2" role="button">See Instructions</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </section>
+
+              <!-- row for FizzBuzz output -->
+              <section class="row">
+                <!-- col for the FizzBuzz output -->
+                <div id="outputArea" class="col">
+                  <!-- Stuff here gets filled in from a template that is located below -->
+                </div> <!-- end col for chart-->
+
+              </section> <!-- end row for FizzBuzz output -->
+
+            </div> <!-- end card body -->
+          </div> <!-- end card div -->
+        </section> <!-- end col -->
+      </section> <!-- end row -->
+    </article>  <!-- end main container -->
+
+    <template id="tableTemplate">
+      <table>
+        <tbody>
+          <tr>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </template>
+
+    <template id="textBoxTemplate">
+      <p></p>
+    </template>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+    <script>
+
+      // ==================================
+      // function on click of doFizzBuzzBtn
+      // ==================================
+      $("#doFizzBuzzBtn").on("click", function () {
+        // Acquire the user data
+        let fNum = parseInt($("#fizzNumInput").val());
+        let bNum = parseInt($("#buzzNumInput").val());
+
+        if (!ValidateUserInput(fNum, bNum)) {
+          return;
+        }
+
+        // Perform the FizzBuzz algorithm
+        let fizzMod = 0;
+        let buzzMod = 0;
+        let output = new Array();
+
+        for (let loop = 1; loop <= 100; loop++) {
+          fizzMod = loop % fNum;
+          buzzMod = loop % bNum;
+
+          if (fizzMod == 0 && buzzMod == 0) {
+            output.push("<span class='fizzbuzz'>FizzBuzz</span>");
+          }
+          else if (fizzMod == 0) {
+            output.push("<span class='fizz'>Fizz</span>")
+          }
+          else if (buzzMod == 0) {
+            output.push("<span class='buzz'>Buzz</span>")
+          }
+          else {
+            output.push(loop);
+          }
+        }
+
+        // Output the result to the user
+        let outStr = "";
+        if (document.getElementById("useTable").checked) {
+          displayInTable(output);
+          
+        } else {
+          displayInTextBox(output);
+        }
+      });
+
+      function ValidateUserInput(fNum, bNum) {
+        let result = true; // assume valid data, but then test to be sure
+
+        if (!fNum || !bNum) {
+          let outStr = "You must enter two numbers in the fields above."
+          let outArea = document.getElementById('outputArea');
+          let template = document.querySelector('#textBoxTemplate');
+
+          // this line gives me a clone of the p element in the template.
+          let pClone = template.content.cloneNode(true);
+
+          // pElement is what I'll add to the HTML outArea.
+          let pElement = pClone.querySelector("p");
+
+          pElement.classList.add("font-weight-bold", "text-danger", "border", "p-3");
+          pElement.innerHTML = outStr;
+
+          // make sure the outArea doesn't have anything in it from a previous execution.
+          outArea.innerHTML = "";
+          outArea.classList.remove("table-responsive"); // just in case
+          outArea.appendChild(pElement);
+          result = false;
+        }
+
+        return result;
+      }
+
+      // ===========================
+      // function displayInTextBox()
+      // ===========================
+      function displayInTextBox(outputArray) {
+        let outArea = document.getElementById('outputArea');
+        let template = document.querySelector('#textBoxTemplate');
+        let outStr = outputArray.join(' ');
+                
+        // this line gives me a clone of the p element in the template.
+        let pClone = template.content.cloneNode(true);
+
+        // pElement is what I'll add to the HTML outArea.
+        let pElement = pClone.querySelector("p");
+
+        pElement.classList.add("border", "p-3");
+        pElement.innerHTML = outStr;
+
+        // make sure the outArea doesn't have anything in it from a previous execution.
+        outArea.innerHTML = "";
+        outArea.classList.remove("table-responsive"); // just in case
+        outArea.appendChild(pElement);
+      }
+
+      // ===========================
+      // function displayInTable()
+      // ===========================
+      function displayInTable(fbArray) {
+        let outArea = document.getElementById('outputArea');
+        let template = document.querySelector('#tableTemplate');
+
+        // here's what the table template looks like:
+        //<table>
+        //  <tbody>
+        //    <tr>
+        //      <td></td>
+        //    </tr>
+        //  </tbody>
+        //</table>
+
+        // clone the table template and grab some of its elements to work with
+        let tableClone = template.content.cloneNode(true);
+        let tableElement = tableClone.querySelector("table");
+        let trClone = tableElement.querySelector("tr").cloneNode(true);
+        let tdClone = tableElement.querySelector("td").cloneNode(true);
+        let tbodyElement = tableElement.querySelector("tbody");
+
+        // initialize things before we enter the loops        
+        // add some classes to the table
+        tableElement.classList.add("table", "table-striped", "table-bordered");
+        tbodyElement.innerHTML = "";
+        trClone.innerHTML = "";
+
+        // now loop through the fbArray and insert table content
+        for (col = 0; col < 10; col++) {
+          let trElement = trClone.cloneNode(true);
+
+          for (row = 0; row < 10; row++) {
+            let tdElement = tdClone.cloneNode(true);
+            tdElement.innerHTML = fbArray[col * 10 + row];
+            tdElement.classList.add("align-middle");
+            trElement.appendChild(tdElement);
+          }
+          tbodyElement.appendChild(trElement);
+        }
+
+        // make sure the outArea doesn't have anything in it from a previous execution.
+        outArea.innerHTML = "";
+        outArea.classList.add("table-responsive");
+        outArea.appendChild(tableElement);
+
+        //$("#fizzBuzzOutput").html(outStr);
+      }
+
+    </script>
+
+  </body>
+</html>
